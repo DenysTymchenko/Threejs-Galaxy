@@ -1,11 +1,11 @@
 export const parameters = {
   count: 10000,
-  size: 0.02,
+  size: 0.01,
   radius: 5,
   branches: 3,
-  spinAngle: 1,
+  spinAngle: 0.5,
   randomness: 0.2,
   randomnessPower: 3,
-  innerColor: '#ffffff',
-  outerColor: '#ffffff',
+  innerColor: '#708bf5',
+  outerColor: '#ee4f4f',
 }
