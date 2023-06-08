@@ -21,7 +21,6 @@ export const scene = new Scene();
 // Camera
 const camera = new PerspectiveCamera(75, sizes.width / sizes.height);
 camera.position.z = 6;
-camera.lookAt(cube.position);
 scene.add(camera);
 
 // Renderer
