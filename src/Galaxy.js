@@ -13,7 +13,7 @@ let geometry = null;
 let material = null;
 let points = null;
 
-function generateGalaxy() {
+export function generateGalaxy() {
   if (points !== null) {
     geometry.dispose(); // remove from the memory
     material.dispose(); // remove from the memory
