@@ -17,15 +17,16 @@ window.addEventListener('click', (e) => {
   raycaster.setFromCamera(mouse, camera);
   intersects = raycaster.intersectObject(points);
 
-  if (intersects.length > 0) paintPartOfTheGalaxy()
+  if (intersects.length > 0) paintPartOfTheGalaxy(intersects[0])
 })
 
-function paintPartOfTheGalaxy() {
+function paintPartOfTheGalaxy(clickedPoint) {
   const color = new Color(Math.random(), Math.random(), Math.random());
   const colors = points.geometry.attributes.color;
 
   intersects.forEach(intersect => {
-    colors.setXYZ(intersect.index, color.r, color.g, color.b);
+    const distanceBetweenPoints= clickedPoint.point.distanceTo(intersect.point);
+    if(distanceBetweenPoints < 2) colors.setXYZ(intersect.index, color.r, color.g, color.b);
   })
 
   colors.needsUpdate = true;
