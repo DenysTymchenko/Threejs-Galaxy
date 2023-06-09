@@ -4,3 +4,10 @@
   left: 0;
   outline: none;
 }
+
+@media screen and (max-width: 895px) {
+  .lil-gui {
+    width: 60%;
+    height: 26%;
+  }
+}
