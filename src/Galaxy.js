@@ -11,7 +11,7 @@ import { parameters } from './Parameters.js';
 
 let geometry = null;
 let material = null;
-let points = null;
+export let points = null;
 
 export function generateGalaxy() {
   if (points !== null) {
@@ -75,4 +75,5 @@ function getRandomCoordinate() {
   // (Math.random() < 0.5 ? 1 : -1) used to make coordinates negative and positive
   return Math.pow(Math.random(), parameters.randomnessPower) * (Math.random() < 0.5 ? 1 : -1);
 }
+
 generateGalaxy()

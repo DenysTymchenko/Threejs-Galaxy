@@ -2,14 +2,12 @@ import {
   PerspectiveCamera,
   Scene,
   WebGLRenderer,
-  Vector2,
-  Raycaster,
 } from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 
 // Sizes
-const sizes = {
+export const sizes = {
   width: window.innerWidth,
   height: window.innerHeight,
 };
@@ -21,8 +19,7 @@ const canvas = document.querySelector('.webgl');
 export const scene = new Scene();
 
 // Camera
-const camera = new PerspectiveCamera(75, sizes.width / sizes.height);
-// camera.position.z = 2;
+export const camera = new PerspectiveCamera(75, sizes.width / sizes.height);
 camera.position.y = 8;
 scene.add(camera);
 
@@ -46,18 +43,6 @@ window.addEventListener('resize', () => {
   renderer.setSize(sizes.width, sizes.height);
   renderer.render(scene, camera);
 });
-
-const pointer = new Vector2();
-const raycaster = new Raycaster();
-
-window.addEventListener('click', (e) => {
-  pointer.x = (e.clientX / window.innerWidth) * 2 - 1;
-  pointer.y = (e.clientY / window.innerHeight) * 2 - 1;
-
-  raycaster.setFromCamera(pointer, camera);
-  const intersects = raycaster.intersectObjects(scene.children);
-  intersects.forEach(intersect => intersect.object.material.color.set(0xff000))
-})
 
 // Used for proper work of controls
 function animate() {
